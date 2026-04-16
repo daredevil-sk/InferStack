@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+
+  fastapi:
+    build: .
+    container_name: fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      - USE_KAFKA=false
+    volumes:
+      - ./models:/models
+    depends_on:
+      - mysql
+
+  worker:
+    build: .
+    container_name: worker
+    command: python inference_worker.py
+    environment:
+      - USE_KAFKA=false
+    volumes:
+      - ./models:/models
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: model_registry
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - fastapi
+
+volumes:
+  mysql_data:

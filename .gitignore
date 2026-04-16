@@ -1,0 +1,18 @@
+**pycache**/
+*.pyc
+.env
+*.log
+
+# Ignore database runtime files
+
+db/*
+!db/init.sql
+
+# Ignore models
+
+models/*.pkl
+
+# OS / editor
+
+.DS_Store
+.vscode/
