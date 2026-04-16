@@ -16,3 +16,7 @@ models/*.pkl
 
 .DS_Store
 .vscode/
+
+*.tar
+*.zip
+*.gz
