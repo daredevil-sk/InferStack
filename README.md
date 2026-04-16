@@ -2,8 +2,11 @@
 
 A production-style machine learning serving platform that enables users to deploy models, run asynchronous predictions, and track results in real time.
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red)
 ---
-
 ## 🧠 Overview
 
 InferStack simulates a real-world ML deployment system using a microservices-style architecture. It supports model registration, background inference processing, and live result tracking through an interactive UI.
